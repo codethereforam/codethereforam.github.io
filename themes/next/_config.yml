@@ -364,7 +364,7 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: 83ff34f2162fbb4c0504bf254854ce16
 
 # Disqus
 disqus:
