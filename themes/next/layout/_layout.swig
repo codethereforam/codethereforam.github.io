@@ -8,6 +8,15 @@
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
   {{ partial('_partials/head.swig', {}, {cache: theme.cache.enable}) }}
+
+  {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}" />
+  {% elif page.tags and page.tags.length %}
+    <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}" />
+  {% elif theme.keywords %}
+    <meta name="keywords" content="{{ theme.keywords }}" />
+  {% endif %}
+
   <title>{% block title %}{% endblock %}</title>
   {% include '_third-party/analytics/index.swig' %}
 </head>

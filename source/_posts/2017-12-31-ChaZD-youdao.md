@@ -6,6 +6,7 @@ categories:
 tags:
 - chrome插件
 - JavaScript
+keywords: chrome插件, 翻译, ChaZD, 有道智云
 updated:
 ---
 

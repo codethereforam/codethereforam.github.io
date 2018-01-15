@@ -5,6 +5,7 @@ categories:
 - 博客通告
 tags:
 - 博客通告
+keywords: 第一篇, 博客, 通告, 简介
 updated:
 ---
 
