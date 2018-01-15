@@ -87,3 +87,15 @@ deploy:
 sitemap:
   path: sitemap.xml
 baidusitemap:
+
+symbols_count_time:
+  symbols: true
+  time: false
+  total_symbols: true
+  total_time: false
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
