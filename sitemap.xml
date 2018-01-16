@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://codethereforam.github.io/2018-01-16-express-mysql/</loc>
+    
+    <lastmod>2018-01-16T16:12:03.310Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://codethereforam.github.io/2018-01-16-baidu-exclude/</loc>
     
-    <lastmod>2018-01-16T10:51:10.723Z</lastmod>
+    <lastmod>2018-01-16T16:12:03.200Z</lastmod>
     
   </url>
   
