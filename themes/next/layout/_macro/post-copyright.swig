@@ -11,4 +11,8 @@
     <strong>{{ __('post.copyright.license_title') + __('symbol.colon') }} </strong>
     {{ __('post.copyright.license_content', theme.post_copyright.license_url, theme.post_copyright.license) }}
   </li>
+  <li>
+      <strong>同步地址：</strong>
+      <a href="http://www.cnblogs.com/thinkam">http://www.cnblogs.com/thinkam</a>
+  </li>
 </ul>
