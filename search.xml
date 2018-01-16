@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使百度统计排除自己]]></title>
+    <url>%2F2018-01-16-baidu-exclude%2F</url>
+    <content type="text"><![CDATA[这两天开始使用github pages搭建博客，我添加了百度统计的功能。由于添加功能和美化界面，一天要打开很多次我的博客。我在百度统计后台看到博客浏览量有几百，而查看详细信息发现IP只有一个，就是我自己的。 于是我想能不能使百度统计排除自己，由于网上没搜到直接的解决办法，我想把我的解决办法分享给大家。 静态IP解决办法: 在百度统计管理后台添加需要排除的IP地址 贴上百度官方的教程: 通过设置过滤排除IP或域名 这个办法明显只对固定的IP有效，如果你的公网IP是固定的，你就不需要继续往下看了。我想看本文的大多和我一样是写博客的，自己的公网IP应该是动态的吧。有一种情况，你用了全局代理，VPS的公网IP是不变的，如果你是此类，只要把VPS的公网IP添加到排除规则就可以了。 动态IP由于IP是变化的，应该不好用上述黑名单的方法。我的解决办法使用广告过滤插件，我用的是uBlock Origin，uBlock默认是屏蔽百度统计的。如果你用的其他广告过滤插件没有默认屏蔽百度统计，你可以手动添加过滤规则，具体步骤自己google。 贴上百度统计被屏蔽的证据： 查看uBlock的dashboard: 3rd-party filters -&gt; Privacy -&gt; EasyPrivacy，可找到对应的屏蔽规则： 1||hm.baidu.com^$third-party 由此可联想到，你网站的PV和UV应该是大于你使用的统计工具得到的结果，有的用户用了过滤插件或油猴脚本就统计不到了。如果你的博客有点名气，可能还有用户用RSS订阅，这部分也统计不到。]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[node.js和JavaScript的关系]]></title>
     <url>%2F2018-01-11-node-js%2F</url>
     <content type="text"><![CDATA[node.js是一个基于 Chrome V8 引擎的 JavaScript 运行时环境。 一、类比JavaScript和java JavaScript java V8 JVM node.js JRE JavaScript和java都是一门编程语言，至于两者的关系，是雷锋和雷峰塔的关系 V8是google开源的JavaScript引擎，用于执行JavaScript，类似JVM执行java字节码。在node.js诞生之前，V8是内置于Chromium中的，现在也内置于node.js中 node.js=V8+内置基本模块（大多用JavaScript编写），类似JRE=JVM+java标准库 node.js诞生之前，JavaScript只能运行于浏览器，现在也可以在服务器端运行于node.js 二、翻译一段Quora回答下面翻译一段Quora上What is the difference between JavaScript and Node.js问题下Mattias Petter Johansson的回答。 JavaScript是一门语言 node.js不是一门语言，也不是一种特殊的JavaScript方言 - 它仅仅就是用于运行普通JavaScript代码的东西 所有浏览器都有运行网页上JavaScript的JavaScript引擎。Firefox有叫做Spidermonkey的引擎，Safari有JavaScriptCore，Chrome有V8 node.js就是带有能操作I/O和网络库的V8引擎，因此你能够在浏览器之外使用JavaScript创建shell脚本和后台服务或者运行在硬件上 三、浏览器端和服务器端JavaScript组成区别浏览器端： ECMAScript，描述了JavaScript语言的语法和基本对象 文档对象模型（DOM），描述处理网页内容的方法和接口 浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口 服务器端： ECMAScript node.js内置模块：文件系统I/O、网络（HTTP、TCP、UDP、DNS、TLS/SSL等）、二进制数据流、加密算法、数据流等等 四、参考资料 https://zh.wikipedia.org/zh-hans/Node.js https://zh.wikipedia.org/zh-hans/JavaScript]]></content>
