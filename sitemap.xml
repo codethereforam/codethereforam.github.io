@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://codethereforam.github.io/2017-12-31-ChaZD-youdao/</loc>
+    
+    <lastmod>2018-01-18T16:00:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://codethereforam.github.io/2018-01-16-express-mysql/</loc>
     
     <lastmod>2018-01-16T16:12:03.310Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://codethereforam.github.io/2018-01-16-baidu-exclude/</loc>
     
     <lastmod>2018-01-16T16:12:03.200Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://codethereforam.github.io/2017-12-31-ChaZD-youdao/</loc>
-    
-    <lastmod>2018-01-15T11:59:29.415Z</lastmod>
     
   </url>
   

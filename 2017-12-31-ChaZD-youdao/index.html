@@ -86,13 +86,13 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://codethereforam.github.io/about/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="https://codethereforam.github.io/categories/index.html">
 <meta property="og:site_name" content="thinkam&#39;s blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-14T14:44:30.584Z">
+<meta property="og:updated_time" content="2018-01-14T14:43:47.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="categories">
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://codethereforam.github.io/about/"/>
+  <link rel="canonical" href="https://codethereforam.github.io/categories/"/>
 
 
 
@@ -410,7 +410,7 @@
                 
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="字数统计">915</span>
+                <span title="字数统计">1k</span>
               
 
               
@@ -434,13 +434,29 @@
       
 
       
-        <p>首先放上该项目的github地址：<a href="https://github.com/codethereforam/ChaZD" target="_blank" rel="noopener">https://github.com/codethereforam/ChaZD</a></p>
+        <p>首先放上该项目的github地址: <a href="https://github.com/codethereforam/ChaZD" target="_blank" rel="noopener">https://github.com/codethereforam/ChaZD</a></p>
 <p>之前想找一个chrome支持划词翻译的插件，最终在知乎上看到了<a href="https://www.zhihu.com/question/20158063/answer/28195077" target="_blank" rel="noopener">这个回答</a>，推荐的是<a href="https://github.com/ververcpp/ChaZD" target="_blank" rel="noopener">ChaZD</a>，用了一段时间我就喜欢上它的简洁方便。</p>
 <p>这个插件用的是有道翻译旧的api，由于有道限制每个api key每小时只能调用1000次，有时候会翻译不了，而且旧的api于 2017-12-31 后停止运行。</p>
 <p>于是，我就改写了这个插件，使其可以调用有道智云新的api。我fork的是<a href="https://github.com/lytofb/ChaZD" target="_blank" rel="noopener">lytofb/ChaZD</a>，作者在原来ChaZD代码的基础上加了自定义api key的功能。</p>
-<h2 id="一、新增功能"><a href="#一、新增功能" class="headerlink" title="一、新增功能"></a>一、新增功能</h2><p>改用有道智云新的api，可以自定义应用ID和密钥</p>
-<h2 id="二、使用说明"><a href="#二、使用说明" class="headerlink" title="二、使用说明"></a>二、使用说明</h2><h3 id="2-1-下载插件"><a href="#2-1-下载插件" class="headerlink" title="2.1 下载插件"></a>2.1 下载插件</h3><p>下载地址：<a href="https://github.com/codethereforam/ChaZD/raw/master/ChaZD-thinkam.crx" target="_blank" rel="noopener">ChaZD-thinkam</a></p>
-<p>如果你的浏览器支持使用非Web Store的插件，直接将下载的crx拖到chrome://extensions/页面。</p>
+<p>如果大家在使用过程中遇到问题或者发现bug，欢迎在项目issues提出，也欢迎大家star、fork。</p>
+<h2 id="一、版本介绍"><a href="#一、版本介绍" class="headerlink" title="一、版本介绍"></a>一、版本介绍</h2><p>如果你想体验原版的ChaZD，请选择v1.0.0，后面几个版本是我根据个人的使用情况和偏好添加了几个功能，欢迎尝试。</p>
+<h3 id="v1-0-0"><a href="#v1-0-0" class="headerlink" title="v1.0.0"></a>v1.0.0</h3><ul>
+<li>改用有道智云api</li>
+<li>可以自定义应用ID和密钥</li>
+</ul>
+<h3 id="v1-1-0"><a href="#v1-1-0" class="headerlink" title="v1.1.0"></a>v1.1.0</h3><ul>
+<li>支持中译英</li>
+</ul>
+<h3 id="v1-2-0"><a href="#v1-2-0" class="headerlink" title="v1.2.0"></a>v1.2.0</h3><ul>
+<li>划词翻译模式添加网络释义</li>
+</ul>
+<h3 id="v1-2-1"><a href="#v1-2-1" class="headerlink" title="v1.2.1"></a>v1.2.1</h3><ul>
+<li>修复网络释义字体异常</li>
+<li>修复无法翻译句子</li>
+<li>popup翻译模式响应事件改为enter</li>
+</ul>
+<h2 id="二、使用说明"><a href="#二、使用说明" class="headerlink" title="二、使用说明"></a>二、使用说明</h2><h3 id="2-1-下载插件"><a href="#2-1-下载插件" class="headerlink" title="2.1 下载插件"></a>2.1 下载插件</h3><p>下载地址：<a href="https://github.com/codethereforam/ChaZD/releases" target="_blank" rel="noopener">https://github.com/codethereforam/ChaZD/releases</a></p>
+<p>选择你想要的版本，下载ChaZD-thinkam.crx文件。如果你的浏览器支持使用非Web Store的插件，直接将下载的crx拖到chrome://extensions/页面。</p>
 <p>如果不支持，将crx文件扩展名改为zip并解压，在chrome://extensions/勾选开发者模式，接着在 Chrome 设置拓展的地方，点击加载未打包的拓展。详细步骤见<a href="https://www.zhihu.com/question/24027794/answer/34500157" target="_blank" rel="noopener">chrome怎么安装非官方市场的插件？ - 小赖的回答</a>。</p>
 <h3 id="2-2-申请有道智云翻译服务"><a href="#2-2-申请有道智云翻译服务" class="headerlink" title="2.2 申请有道智云翻译服务"></a>2.2 申请有道智云翻译服务</h3><ul>
 <li>注册<a href="http://ai.youdao.com/" target="_blank" rel="noopener">有道智云</a>帐号并登录到控制台页面</li>
@@ -449,7 +465,7 @@
 <li>在插件中绑定应用——将上步骤的应用ID和应用密钥填写到插件设置页中相应的位置，如下图</li>
 </ul>
 <p><img src="/images/2017-12-31-ChaZD-youdao-01.png" alt=""></p>
-<h3 id="2-3-具体翻译说明"><a href="#2-3-具体翻译说明" class="headerlink" title="2.3 具体翻译说明"></a>2.3 具体翻译说明</h3><p>参考原作者github项目的README.md–<a href="https://github.com/ververcpp/ChaZD" target="_blank" rel="noopener">https://github.com/ververcpp/ChaZD</a></p>
+<h3 id="2-3-具体翻译说明"><a href="#2-3-具体翻译说明" class="headerlink" title="2.3 具体翻译说明"></a>2.3 具体翻译说明</h3><p>参考项目README: <a href="https://github.com/codethereforam/ChaZD/blob/master/README.md" target="_blank" rel="noopener">https://github.com/codethereforam/ChaZD/blob/master/README.md</a></p>
 <h2 id="三、结尾"><a href="#三、结尾" class="headerlink" title="三、结尾"></a>三、结尾</h2><p>有道翻译旧的api于明天就停止运行了，原来的这个插件应该就不能用了，我赶在前一天完善了一下这个插件，之前的老用户可以继续使用。如果你没用过，欢迎尝试。</p>
 <p>由于时间仓促加上我刚接触插件才两天，代码应该还有一些问题，欢迎提出问题。后面我会继续完善代码，添加一些定制功能。</p>
 
@@ -706,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、新增功能"><span class="nav-number">1.</span> <span class="nav-text">一、新增功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、使用说明"><span class="nav-number">2.</span> <span class="nav-text">二、使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-下载插件"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 下载插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-申请有道智云翻译服务"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 申请有道智云翻译服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-具体翻译说明"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 具体翻译说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、结尾"><span class="nav-number">3.</span> <span class="nav-text">三、结尾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、版本介绍"><span class="nav-number">1.</span> <span class="nav-text">一、版本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-0-0"><span class="nav-number">1.1.</span> <span class="nav-text">v1.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-1-0"><span class="nav-number">1.2.</span> <span class="nav-text">v1.1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-2-0"><span class="nav-number">1.3.</span> <span class="nav-text">v1.2.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v1-2-1"><span class="nav-number">1.4.</span> <span class="nav-text">v1.2.1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、使用说明"><span class="nav-number">2.</span> <span class="nav-text">二、使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-下载插件"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 下载插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-申请有道智云翻译服务"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 申请有道智云翻译服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-具体翻译说明"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 具体翻译说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、结尾"><span class="nav-number">3.</span> <span class="nav-text">三、结尾</span></a></li></ol></div>
             
 
           </div>
