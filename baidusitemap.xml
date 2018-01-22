@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://codethereforam.github.io/2018-01-22-factory/</loc>
+    <lastmod>2018-01-22T17:19:38.734Z</lastmod>
+    <data>
+        <display>
+        <title>简单工厂、工厂方法和抽象工厂的总结</title>
+        <pubTime>2018-01-21T16:00:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>面向对象</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://codethereforam.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://codethereforam.github.io/2017-12-31-ChaZD-youdao/</loc>
     <lastmod>2018-01-18T16:00:00.000Z</lastmod>
     <data>

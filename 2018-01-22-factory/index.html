@@ -128,10 +128,10 @@
 
 
   
-    <meta name="keywords" content="thinkam, 博客, blog" />
+    <meta name="keywords" content="简单工厂, 工厂方法, 抽象工厂, 工厂模式, 对比, 总结, 设计模式, java" />
   
 
-  <title>标签: express | thinkam's blog</title>
+  <title>简单工厂、工厂方法和抽象工厂的总结 | thinkam's blog</title>
   
 
 
@@ -169,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     
@@ -289,58 +289,407 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>express<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://codethereforam.github.io/2018-01-22-factory/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="thinkam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="thinkam's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018-01-16-express-mysql/" itemprop="url">
-              
-                <span itemprop="name">nodejs+express+mysql实现restful风格的增删改查示例</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">简单工厂、工厂方法和抽象工厂的总结</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-16T23:00:00+08:00"
-              content="2018-01-16" >
-          01-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T00:00:00+08:00">2018-01-22</time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018-01-22-factory/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018-01-22-factory/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018-01-22-factory/" class="leancloud_visitors" data-flag-title="简单工厂、工厂方法和抽象工厂的总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">3k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先，放上项目github地址: <a href="https://github.com/codethereforam/java-design-patterns" target="_blank" rel="noopener">https://github.com/codethereforam/java-design-patterns</a>, 我是用java实现的</p>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>题目中的这三个设计模式属于<code>创建型模式</code>，作用是为了<strong>抽象实例化过程</strong>。</p>
+<p>我之前学过这三个设计模式，但最近发现又无法厘清这三个的区别了，为了避免下次又忘了，于是想动手记录下来。</p>
+<p>可能有同学有疑问，提前说一下，下面所展示的<code>类图</code>由<code>IDEA</code>自带插件<code>UML Support</code>自动生成，而<code>时序图</code>由插件<a href="https://github.com/Vanco/SequencePlugin" target="_blank" rel="noopener"><code>SequencePlugin</code></a>自动生成。如果有同学对类图和时序图还不了解，请先google自学一下。</p>
+<p>下面我结合模拟场景总结一下这三个模式，具体代码请点击本文开头的github链接。</p>
+<h2 id="二、简单工厂"><a href="#二、简单工厂" class="headerlink" title="二、简单工厂"></a>二、简单工厂</h2><p>模拟场景：一个用户管理系统，假设只有一张User表。本来用的mysql，但需求突然发生变化，现在要用Oralce，由于这两个数据库的SQL语句有些差别，需要重写数据库层面的代码，现在要求系统可以灵活切换数据库。</p>
+<p><img src="/images/2018-01-22-class-01.png" alt="类图"></p>
+<p><img src="/images/2018-01-22-sequence-01.png" alt="时序图"> </p>
+<p>关键代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDAOFactory</span> </span>&#123;</span><br><span class="line">	<span class="comment">//静态工厂方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> UserDAO <span class="title">createUserDAO</span><span class="params">(String database)</span> </span>&#123;</span><br><span class="line">		UserDAO userDAO = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">switch</span> (database) &#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="string">"mysql"</span>:</span><br><span class="line">				userDAO = <span class="keyword">new</span> UserDAOMysqlImpl();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="string">"oracle"</span>:</span><br><span class="line">				userDAO = <span class="keyword">new</span> UserDAOOracleImpl();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> userDAO;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>分析：如果现在要改用<code>SQL server</code>数据库，需要添加一个<code>UserDAOSqlserverImpl</code>，然后在<br><code>UserDAOFactory</code>类的<code>createUserDAO</code>方法中添加一个case，这显然违背了<code>开闭原则</code>。</p>
+<ul>
+<li><p>特点</p>
+<ul>
+<li>工厂类包含必要的逻辑判断来选择生产具体产品</li>
+<li>用于生产单个产品</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>去除客户端与具体产品的依赖</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>添加产品需要修改工厂类，违背开闭原则</li>
+</ul>
+</li>
+<li><p>角色</p>
+<ul>
+<li>抽象产品(UserDAO)</li>
+<li>具体产品(UserDAOMysqlImpl &amp; UserDAOOracleImpl)</li>
+<li>工厂(UserDAOFactory)</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、工厂方法"><a href="#三、工厂方法" class="headerlink" title="三、工厂方法"></a>三、工厂方法</h2><p>模拟场景：和上述简单工厂模拟场景一样</p>
+<p><img src="/images/2018-01-22-class-02.png" alt="类图"></p>
+<p><img src="/images/2018-01-22-sequence-02.png" alt="时序图"></p>
+<p>分析：如果现在要改用<code>SQL server</code>数据库，则需添加一个<code>UserDAOSqlserverImpl</code>和相应的工厂<code>UserDAOFactorySqlserverImpl</code>，再更改Main中的实例化代码，这满足了<code>开闭原则</code>，扩展很方便。但如果支持的数据库一多，那工厂就会泛滥。</p>
+<ul>
+<li><p>特点</p>
+<ul>
+<li>一个产品对应一个工厂类</li>
+<li>用于生产某种类型产品</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>方便添加新产品</li>
+<li>添加新产品只需添加相应工厂类，符合开闭原则</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>产品多时，工厂泛滥</li>
+</ul>
+</li>
+<li><p>角色</p>
+<ul>
+<li>抽象产品(UserDAO)</li>
+<li>具体产品(UserDAOMysqlImpl &amp; UserDAOOracleImpl)</li>
+<li>抽象工厂(UserDAOFactory)</li>
+<li>具体工厂(UserDAOFactoryMysqlImpl &amp; UserDAOFactoryOracleImpl)</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、抽象工厂"><a href="#四、抽象工厂" class="headerlink" title="四、抽象工厂"></a>四、抽象工厂</h2><p>模拟场景：在之前的场景基础上，如果系统本来还有一个日志表，是用来记录日志的。</p>
+<p><img src="/images/2018-01-22-class-03.png" alt="类图"></p>
+<p><img src="/images/2018-01-22-sequence-03.png" alt="时序图"></p>
+<p>分析：如果现在要改用<code>SQL server</code>数据库，则需添加<code>UserDAOSqlserverImpl</code>、<code>LogDAOSqlserverImpl</code>和<code>DAOFactorySqlserverImpl</code>，再更改Main中的实例化代码。但如果现在要添加一个其他的表，那么就要改<code>DAOFactory</code>接口和接口中方法的实现，要改动的地方太多。</p>
+<ul>
+<li><p>特点</p>
+<ul>
+<li>用于生产一系列产品</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>易于改变工厂生产行为，产生新的产品系列</li>
+<li>具体创建过程与客户端分离，客户端通过接口操纵实例（factory1.createUserDAO().add()）</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>添加新产品，要修改抽象工厂接口、具体工厂，改动太多</li>
+</ul>
+</li>
+<li><p>角色</p>
+<ul>
+<li>抽象产品(UserDAO &amp; LogDAO)</li>
+<li>具体产品(UserDAOMysqlImpl &amp; UserDAOOracleImpl &amp; LogDAOMysqlImpl &amp; LogDAOOracleImpl)</li>
+<li>抽象工厂(DAOFactory)</li>
+<li>具体工厂(DAOFactoryMysqlImpl &amp; DAOFactoryOracleImpl)</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、用简单工厂改进抽象工厂"><a href="#五、用简单工厂改进抽象工厂" class="headerlink" title="五、用简单工厂改进抽象工厂"></a>五、用简单工厂改进抽象工厂</h2><p><img src="/images/2018-01-22-class-04.png" alt="类图"></p>
+<p><img src="/images/2018-01-22-sequence-04.png" alt="时序图"></p>
+<p>关键代码（选取<code>DataAccess</code>）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> UserDAO <span class="title">createUserDAO</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		UserDAO userDAO = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">switch</span> (database) &#123;</span><br><span class="line">			<span class="keyword">case</span> MYSQL:</span><br><span class="line">				userDAO = <span class="keyword">new</span> UserDAOMysqlImpl();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> ORACLE:</span><br><span class="line">				userDAO = <span class="keyword">new</span> UserDAOOracleImpl();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> userDAO;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>特点</p>
+<ul>
+<li>用DataAccess取代抽象工厂和具体工厂</li>
+<li>DataAccess通过判断控制生产行为</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li>减少类</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>添加新产品系列，要改动DataAccess中的switch-case</li>
+</ul>
+</li>
+</ul>
+<h2 id="六、用反射改进抽象工厂"><a href="#六、用反射改进抽象工厂" class="headerlink" title="六、用反射改进抽象工厂"></a>六、用反射改进抽象工厂</h2><p><img src="/images/2018-01-22-class-05.png" alt="类图"></p>
+<p><img src="/images/2018-01-22-sequence-05.png" alt="时序图"></p>
+<p>关键代码（选取<code>DataAccess</code>）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String PACKAGE_NAME = DataAccess.class.getPackage().getName();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> UserDAO <span class="title">createUserDAO</span><span class="params">()</span> <span class="keyword">throws</span> ClassNotFoundException, IllegalAccessException, InstantiationException </span>&#123;</span><br><span class="line">		String className = PACKAGE_NAME + <span class="string">".UserDAO"</span> + database + <span class="string">"Impl"</span>;</span><br><span class="line">		<span class="keyword">return</span> (UserDAO) Class.forName(className).newInstance();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>优点</p>
+<ul>
+<li>减少类</li>
+<li>解决抽象工厂添加产品改动较多的问题，方便扩展</li>
+</ul>
+</li>
+<li><p>可使用配置文件继续完善</p>
+</li>
+</ul>
+<h2 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h2><p>如果你仔细看到这，你可能会觉得我例子举的不恰当，哪里有系统只有一个表的呢，前面的场景直接考虑抽象工厂就行了。我承认我举的例子有问题，之前写代码时没有发现，应该是当时理解的还不够深入。</p>
+<p>简单工厂和工厂方法的模拟场景应该改为：系统本来有一直表，但现在要添加表，而不是换数据库。而抽象工厂的模拟场景应该改为：在上述的基础上要换数据库。如果你理解了三个模式，我想这两个模拟场景你应该也知道怎么实现了。</p>
+<p>本文的例子我参考了<code>大话设计模式</code>，但其他代码和文字是我自己的理解。如果有错误，望各位不吝赐教，在评论区指出。</p>
+<h2 id="八、参考资料"><a href="#八、参考资料" class="headerlink" title="八、参考资料"></a>八、参考资料</h2><ul>
+<li><a href="https://item.jd.com/10079261.html" target="_blank" rel="noopener">大话设计模式</a>，by 程杰</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    thinkam
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codethereforam.github.io/2018-01-22-factory/" title="简单工厂、工厂方法和抽象工厂的总结">https://codethereforam.github.io/2018-01-22-factory/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+  <li>
+      <strong>同步地址：</strong>
+      <a href="http://www.cnblogs.com/thinkam">http://www.cnblogs.com/thinkam</a>
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-01-16-express-mysql/" rel="next" title="nodejs+express+mysql实现restful风格的增删改查示例">
+                <i class="fa fa-chevron-left"></i> nodejs+express+mysql实现restful风格的增删改查示例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -361,8 +710,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -456,6 +814,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、简单工厂"><span class="nav-number">2.</span> <span class="nav-text">二、简单工厂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、工厂方法"><span class="nav-number">3.</span> <span class="nav-text">三、工厂方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、抽象工厂"><span class="nav-number">4.</span> <span class="nav-text">四、抽象工厂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、用简单工厂改进抽象工厂"><span class="nav-number">5.</span> <span class="nav-text">五、用简单工厂改进抽象工厂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、用反射改进抽象工厂"><span class="nav-number">6.</span> <span class="nav-text">六、用反射改进抽象工厂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、总结"><span class="nav-number">7.</span> <span class="nav-text">七、总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、参考资料"><span class="nav-number">8.</span> <span class="nav-text">八、参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -629,6 +1003,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.1"></script>
+
+
 
   
 
@@ -643,6 +1021,18 @@
     <script id="dsq-count-scr" src="https://thinkam.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://codethereforam.github.io/2018-01-22-factory/';
+        this.page.identifier = '2018-01-22-factory/';
+        this.page.title = '简单工厂、工厂方法和抽象工厂的总结';
+      };
+      var d = document, s = d.createElement('script');
+      s.src = 'https://thinkam.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    </script>
   
 
 
