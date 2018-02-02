@@ -128,10 +128,10 @@
 
 
   
-    <meta name="keywords" content="thinkam, 博客, blog" />
+    <meta name="keywords" content="Linux, 内存, 不足" />
   
 
-  <title>归档 | thinkam's blog</title>
+  <title>【译】Linux吃掉了我的内存 | thinkam's blog</title>
   
 
 
@@ -169,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     
@@ -289,152 +289,331 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://codethereforam.github.io/2018-02-02-linux-ate-my-ram/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="thinkam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="thinkam's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">【译】Linux吃掉了我的内存</h2>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T00:00:00+08:00">2018-02-02</time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018-02-02-linux-ate-my-ram/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018-02-02-linux-ate-my-ram/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018-02-02-linux-ate-my-ram/" class="leancloud_visitors" data-flag-title="【译】Linux吃掉了我的内存">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">2k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p><img src="/images/2018-02-02-linux-ate-my-ram-01.png" alt="Linux ate my ram"></p>
+<blockquote>
+<p>英文原文: <a href="https://www.linuxatemyram.com/" target="_blank" rel="noopener">https://www.linuxatemyram.com/</a><br>作者: <a href="https://github.com/koalaman" target="_blank" rel="noopener">Vidar Holen</a><br>译者: <a href="https://github.com/codethereforam" target="_blank" rel="noopener">thinkam</a>  </p>
+</blockquote>
+<h2 id="发生了什么？"><a href="#发生了什么？" class="headerlink" title="发生了什么？"></a>发生了什么？</h2><p>Linux正借用你未使用的内存来做磁盘缓存。这使你的计算机看起来可用内存很少，但事实不是这样！一切都很正常！</p>
+<h2 id="为什么这么做？"><a href="#为什么这么做？" class="headerlink" title="为什么这么做？"></a>为什么这么做？</h2><p>磁盘缓存使你的系统运行更快更流畅！除了使新手感到困惑，这没什么缺点。它从来没有以任何方式从你的应用拿走内存。</p>
+<h2 id="如果我想运行更多的应用该怎么办？"><a href="#如果我想运行更多的应用该怎么办？" class="headerlink" title="如果我想运行更多的应用该怎么办？"></a>如果我想运行更多的应用该怎么办？</h2><p>如果你的应用想要获取更多的内存，系统会从磁盘缓存中拿走一块被借用的内存。磁盘缓存会立即还给应用！你的计算机可用内存的并不少！</p>
+<h2 id="我需要更多的交换分区-swap-吗？"><a href="#我需要更多的交换分区-swap-吗？" class="headerlink" title="我需要更多的交换分区(swap)吗？"></a>我需要更多的交换分区(swap)吗？</h2><p>不需要，磁盘缓存仅会借用应用目前不需要的内存。它不会使用交换分区。如果应用需要更多的内存，系统会从磁盘缓存中拿回来。系统不会使用交换分区。</p>
+<h2 id="我如何让Linux停止这样做？"><a href="#我如何让Linux停止这样做？" class="headerlink" title="我如何让Linux停止这样做？"></a>我如何让Linux停止这样做？</h2><p>你不能禁用磁盘缓存。任何人想要禁用磁盘缓存的唯一理由是他认为这从他的应用中拿走了内存，但事实不是这样！磁盘缓存可以让应用加载更快并且运行更加流畅，但它却从来没有拿走内存！因此，没有任何理由去禁用它！</p>
+<h2 id="如果不是这样，为什么top和free命令说我所有的内存已被使用？"><a href="#如果不是这样，为什么top和free命令说我所有的内存已被使用？" class="headerlink" title="如果不是这样，为什么top和free命令说我所有的内存已被使用？"></a>如果不是这样，为什么<code>top</code>和<code>free</code>命令说我所有的内存已被使用？</h2><p>这仅仅是用辞的差异。你和Linux系统一致认为被应用占用的内存称为<code>used</code>，而没有被任何程序使用的部分称为<code>free</code>。</p>
+<p>但是，你认为目前被占用但仍然可以被应用使用的内存称作什么呢？</p>
+<p>你可能认为这部分内存是<code>free</code>或<code>available</code>。而Linux系统称它<code>used</code>或<code>available</code>:</p>
+<table>
+<thead>
+<tr>
+<th>内存</th>
+<th>你称它</th>
+<th>Linux称它</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>被应用使用</td>
+<td><code>used</code></td>
+<td><code>used</code></td>
+</tr>
+<tr>
+<td>被占用，但可以使用</td>
+<td><code>free</code>(或<code>available</code>)</td>
+<td><code>used</code>(或<code>available</code>)</td>
+</tr>
+<tr>
+<td>没有用来做任何事</td>
+<td><code>free</code></td>
+<td><code>free</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>译注：老版<code>free</code>命令中被占用但可以使用的内存称为<code>used</code>(<code>used</code>中的一部分，即<code>buffers</code>+<code>cached</code>), 而新版的<code>free</code>命令中称之为<code>available</code>。</p>
+</blockquote>
+<p>不严格来讲，<code>top</code>和<code>free</code>命令称这部分内存为<code>buffers</code>和<code>cached</code>。因为你和Linux用辞的差异，你可能认为你的计算机可用内存很少，不过事实并非如此。</p>
+<blockquote>
+<p>译注：这部分内存准确来说是新版本<code>free</code>命令中的<code>available</code>或者是新版本<code>top</code>命令中的<code>avail Mem</code>。</p>
+</blockquote>
+<h2 id="我怎么看我真正还有多少可用内存？"><a href="#我怎么看我真正还有多少可用内存？" class="headerlink" title="我怎么看我真正还有多少可用内存？"></a>我怎么看我真正还有多少可用内存？</h2><p>为了弄明白除了交换分区外你的应用可以使用多少内存，执行<code>free -m</code>命令，然后查看<code>available</code>那一列:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ free -m</span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:           1504        1491          13           0         855      792</span><br><span class="line">Swap:          2047           6        2041</span><br></pre></td></tr></table></figure>
+<p>(2016年之前的Linux安装版本，在<code>-/+ buffers/cache</code>那排查看<code>free</code>列)</p>
+<p>这是你以<code>MB</code>为单位的答案。如果你天真地查看<code>used</code>和<code>free</code>，你会认为你的内存几乎快占满达到99%，然而实际仅仅只有47%！</p>
+<p>如果想查看更详细、更专业的关于Linux统计<code>available</code>内存大小的描述，请看<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773" target="_blank" rel="noopener"> the commit that added the field</a>.</p>
+<h2 id="什么时候我该开始担心？"><a href="#什么时候我该开始担心？" class="headerlink" title="什么时候我该开始担心？"></a>什么时候我该开始担心？</h2><p>一个拥有足够内存的、<strong>运行良好</strong>的Linux系统在运行一段时间后会表现出以下预期的无害特征：</p>
+<ul>
+<li><code>free</code>内存接近于<strong>0</strong></li>
+<li><code>used</code>内存接近<strong>总共内存</strong></li>
+<li><code>available</code>内存（或者是<code>free + buffers/cache</code>）有足够空间（比如说：总内存的20%以上）</li>
+<li><code>swap used</code>没有发生变化</li>
+</ul>
+<p>真正的内存不够、你也许想调查原因的情形，<strong>警告标志</strong>如下：</p>
+<ul>
+<li><code>available</code>内存（或者是<code>free + buffers/cache</code>）接近于<strong>0</strong></li>
+<li><code>swap used</code>在增加或者波动</li>
+<li><code>dmesg | grep oom-killer</code>命令显示<code>OutOfMemory-killer</code>程序正在运行</li>
+</ul>
+<h2 id="我如何验证这些？"><a href="#我如何验证这些？" class="headerlink" title="我如何验证这些？"></a>我如何验证这些？</h2><p>如果想了解更多细节和做实验测试磁盘缓存的影响，请看<a href="https://www.linuxatemyram.com/play.html" target="_blank" rel="noopener">这个页面</a>。我做了少量的工作只是想让你感激磁盘缓存，而不是让你测试你的硬件速度提升了几个数量级。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    thinkam
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://codethereforam.github.io/2018-02-02-linux-ate-my-ram/" title="【译】Linux吃掉了我的内存">https://codethereforam.github.io/2018-02-02-linux-ate-my-ram/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+  <li>
+      <strong>同步地址：</strong>
+      <a href="http://www.cnblogs.com/thinkam">http://www.cnblogs.com/thinkam</a>
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
         
-        
+
         
 
         
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2017">2017</h2>
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017-12-31-ChaZD-youdao/" itemprop="url">
-              
-                <span itemprop="name">完善chrome翻译插件ChaZD，支持有道智云api</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T00:00:00+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-01-22-factory/" rel="next" title="简单工厂、工厂方法和抽象工厂的总结">
+                <i class="fa fa-chevron-left"></i> 简单工厂、工厂方法和抽象工厂的总结
+              </a>
+            
+          </div>
 
-        
-        
+          <span class="post-nav-divider"></span>
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017-12-02-java-deriv/" itemprop="url">
-              
-                <span itemprop="name">面向对象编程 —— java实现函数求导</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T00:00:00+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017-12-01-blog-intro/" itemprop="url">
-              
-                <span itemprop="name">我的第一篇博客 —— 博客内容简介</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-01T00:00:00+08:00"
-              content="2017-12-01" >
-          12-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-    </div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -455,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -550,6 +738,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#发生了什么？"><span class="nav-number">1.</span> <span class="nav-text">发生了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么这么做？"><span class="nav-number">2.</span> <span class="nav-text">为什么这么做？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果我想运行更多的应用该怎么办？"><span class="nav-number">3.</span> <span class="nav-text">如果我想运行更多的应用该怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我需要更多的交换分区-swap-吗？"><span class="nav-number">4.</span> <span class="nav-text">我需要更多的交换分区(swap)吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我如何让Linux停止这样做？"><span class="nav-number">5.</span> <span class="nav-text">我如何让Linux停止这样做？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果不是这样，为什么top和free命令说我所有的内存已被使用？"><span class="nav-number">6.</span> <span class="nav-text">如果不是这样，为什么top和free命令说我所有的内存已被使用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我怎么看我真正还有多少可用内存？"><span class="nav-number">7.</span> <span class="nav-text">我怎么看我真正还有多少可用内存？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候我该开始担心？"><span class="nav-number">8.</span> <span class="nav-text">什么时候我该开始担心？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我如何验证这些？"><span class="nav-number">9.</span> <span class="nav-text">我如何验证这些？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -723,6 +927,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.1"></script>
+
+
 
   
 
@@ -737,6 +945,18 @@
     <script id="dsq-count-scr" src="https://thinkam.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://codethereforam.github.io/2018-02-02-linux-ate-my-ram/';
+        this.page.identifier = '2018-02-02-linux-ate-my-ram/';
+        this.page.title = '【译】Linux吃掉了我的内存';
+      };
+      var d = document, s = d.createElement('script');
+      s.src = 'https://thinkam.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    </script>
   
 
 
